@@ -41,13 +41,11 @@ python scripts/build_index.py
 
 ## System Architecture
 
-# Architecture Note: Interstellar
-
-## Overview
+### Overview
 
 Interstellar is designed as a modular, offline-first system for semantic satellite imagery search and change detection.
 
-## Pipeline
+### Pipeline
 
 ```mermaid
 graph TD
@@ -64,7 +62,7 @@ graph TD
     I --> J[Audit Database SQLite]
 ```
 
-## Core Components
+### Core Components
 
 1.  **Preprocessing (`app/services/preprocessing.py`)**: Uses Rasterio (or numpy fallback) to read multi-band GeoTIFFs, apply SCL cloud masks, and slice into 256x256 tiles.
 2.  **Embeddings (`app/services/embedding.py`)**: Uses OpenCLIP (ViT-B-32 fallback for MVP) to map tiles and text queries into a 512-dimensional joint semantic space.
