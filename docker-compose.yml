@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  api:
+    build: .
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+      - ./index:/app/index
+    network_mode: none  # Enforces offline requirement
+    environment:
+      - INTERSTELLAR_API_HOST=0.0.0.0
+
+  ui:
+    build: .
+    command: streamlit run ui/app.py --server.port=8501 --server.address=0.0.0.0
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+      - ./index:/app/index
+    network_mode: none  # Enforces offline requirement
+    environment:
+      - INTERSTELLAR_API_HOST=api  # Point to API container if networks were enabled, but since it's none, use localhost in the UI if needed, or host network
+    # For fully offline without networks, we might need host networking or a custom bridge without external access.
+    # We will use host networking for simplicity to allow UI -> API communication while offline.
+    network_mode: host

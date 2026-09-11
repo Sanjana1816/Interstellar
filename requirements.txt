@@ -1,0 +1,48 @@
+# === Core ===
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+pydantic==2.10.4
+pydantic-settings==2.7.1
+python-multipart==0.0.20
+
+# === Database ===
+sqlalchemy==2.0.36
+aiosqlite==0.21.0
+
+# === Geospatial ===
+rasterio==1.4.3
+shapely==2.0.6
+pyproj==3.7.1
+rio-cogeo==5.4.1
+
+# === ML / Embeddings ===
+torch==2.5.1
+torchvision==0.20.1
+open-clip-torch==2.29.0
+Pillow==11.1.0
+
+# === Vector Index ===
+faiss-cpu==1.9.0.post1
+
+# === Clustering ===
+hdbscan==0.8.40
+scikit-learn==1.6.1
+
+# === Numerical ===
+numpy==1.26.4
+scipy==1.15.1
+
+# === Frontend ===
+streamlit==1.41.1
+streamlit-image-comparison==0.0.4
+folium==0.19.4
+streamlit-folium==0.23.2
+
+# === Utilities ===
+httpx==0.28.1
+tqdm==4.67.1
+orjson==3.10.14
+python-dateutil==2.9.0.post0
+
+# === Image Processing ===
+opencv-python-headless==4.10.0.84
